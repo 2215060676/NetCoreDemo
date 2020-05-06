@@ -1,0 +1,11 @@
+D:\NET练习\Demo\Demo\Demo\bin\Debug\netcoreapp2.2\Demo.deps.json
+D:\NET练习\Demo\Demo\Demo\bin\Debug\netcoreapp2.2\Demo.runtimeconfig.json
+D:\NET练习\Demo\Demo\Demo\bin\Debug\netcoreapp2.2\Demo.runtimeconfig.dev.json
+D:\NET练习\Demo\Demo\Demo\bin\Debug\netcoreapp2.2\Demo.dll
+D:\NET练习\Demo\Demo\Demo\obj\Debug\netcoreapp2.2\Demo.csproj.CoreCompileInputs.cache
+D:\NET练习\Demo\Demo\Demo\obj\Debug\netcoreapp2.2\Demo.AssemblyInfoInputs.cache
+D:\NET练习\Demo\Demo\Demo\obj\Debug\netcoreapp2.2\Demo.AssemblyInfo.cs
+D:\NET练习\Demo\Demo\Demo\bin\Debug\netcoreapp2.2\Demo.pdb
+D:\NET练习\Demo\Demo\Demo\obj\Debug\netcoreapp2.2\Demo.dll
+D:\NET练习\Demo\Demo\Demo\obj\Debug\netcoreapp2.2\Demo.pdb
+D:\NET练习\Demo\Demo\Demo\obj\Debug\netcoreapp2.2\Demo.csprojAssemblyReference.cache

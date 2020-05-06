@@ -1,0 +1,57 @@
+﻿@using Microsoft.AspNetCore.Identity
+<!DOCTYPE html>
+
+@inject SignInManager<IdentityUser>  signinManager
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <nav class="navbar-light mb=0 h1">信息管理系统</nav>
+
+        @if (signinManager.IsSignedIn(User))
+        {
+
+            <form asp-controller="Account" asp-action="LogOut" method="post" id="logoutform">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a href="javascript:document.getElementById('logoutform').submit()"> 登出</a>
+                    </li>
+                </ul>
+            </form>
+
+        }
+        else
+        {
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a asp-controller="login" asp-action="Register"> 注册</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-controller="login" asp-action="index"> 登录</a>
+                </li>
+            </ul>
+
+
+        }
+
+
+    </nav>
+    <div>
+        @RenderBody()
+    </div>
+    <hr />
+    <div>
+        @*required:false 意思是说页面可以有，也可以没有*@
+        @RenderSection("botton", required: false)
+    </div>
+    @*@await Component.InvokeAsync("Welcome")*@
+    <vc:Welcome></vc:Welcome>
+    <script src="~/node_modules/jquery/dist/jquery.js"></script>
+    <script src="~/node_modules/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"></script>
+</body>
+</html>

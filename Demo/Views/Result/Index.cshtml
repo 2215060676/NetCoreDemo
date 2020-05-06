@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Demo.Model.Result>
+
+@{
+    ViewData["Title"] = "Index";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+    var pagecount = Convert.ToInt32(ViewBag.pagrcount);
+    var pageinde = Convert.ToInt32(ViewBag.pageinde);
+    var pagstart = pageinde - 2 > 0 ? pageinde - 2 : 1;
+    var pageend = pageinde + 2 >= pagecount ? pageinde : pagstart + 4;
+}
+
+<h1>首页</h1>
+
+<p>
+    <a asp-action="Add">添加数据</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.strName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Discription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Create)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.type)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.Password)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Attachment)
+            </th>
+            <th>
+                操作
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.strName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Discription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Create)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.type.Name)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Password)
+                    </td>*@
+            <td>
+                @*@Html.DisplayFor(modelItem => item.Attachment)*@
+                <a href="~/@item.Attachment">下载</a>
+            </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.id">编辑</a> |
+                    <a asp-action="Details" asp-route-id="@item.id">详情</a> |
+                    <a asp-action="Delect" asp-route-id="@item.id">删除</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<link href="~/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet" />
+<script src="~/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+<nav aria-label="...">
+    <ul class="pagination">
+        <li class="@(pageinde==1?"disabled":"")"><a asp-action="Index" asp-route-pageindex="@(pageinde==1?1:pageinde-1)">&laquo;</a></li>
+        @for (int i = pagstart; i < pageend; i++)
+        {
+            <li @(pageinde == i ? "class=active" : "")><a asp-action="Index" asp-route-pageindex="@i">@i </a></li>
+        }
+        <li class="@(pageinde== pagecount?"disabled":"")"><a asp-action="Index" asp-route-pageindex="@(pageinde==pagecount?pagecount:pageinde+1)">&laquo;</a></li>
+
+    </ul>
+</nav>
